@@ -81,7 +81,7 @@ class API {
             print("Token is nil. Cannot save")
             return
         }
-        let endPoint = "\(token)"
+        let endPoint = "https://24cm0138.main.jp/esp32/fcmTokenSaver.php?token=\(token)"
         
         do {
             let (_, _) = try await URLSession.shared.data(from: URL(string: endPoint)!)
