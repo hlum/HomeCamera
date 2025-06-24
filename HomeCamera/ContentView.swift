@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var notificationManager = NotificationManager.shared
+    @State private var selectedTopic = "news"
+    
+    @State private var fcmtoken: String = ""
+    
+    let availableTopics = ["news", "sports", "technology", "weather"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(spacing: 20) {
+               
+                Text("FCMtoken: \(fcmtoken)")
+            }
+            .onAppear {
+                notificationManager.fcmToken
+            }
         }
-        .padding()
     }
 }
 
